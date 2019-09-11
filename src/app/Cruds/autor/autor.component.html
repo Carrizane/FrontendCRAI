@@ -1,0 +1,24 @@
+<div class="container my-3">
+    <button type="button" class="btn btn-primary my-3" [routerLink] = "['/autores/form']">Crear</button>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th colspan="2">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let autor of autores">
+          <td>{{autor.idautor}}</td>
+          <td>{{autor.nombres}}</td>
+          <td>{{autor.apellidos}}</td>
+          <td>
+            <button class="btn btn-warning" type="button" name="editar" [routerLink] = "['/autores/form', autor.idautor]">Editar</button>
+          </td>
+          <td><button class="btn btn-danger" type="button" name="eliminar" (click)='eliminar(autor)'>Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>

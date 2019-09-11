@@ -1,0 +1,57 @@
+<div class="container my-3">
+    <div class="card">
+        <div class="card-header">
+            <div *ngIf="!empleado.idempleado else elseTitle">
+                Crear Empleado
+            </div>
+            <ng-template #elseTitle>
+                Actualizar Empleado
+            </ng-template>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-group row">
+                    <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="empleado.nombres" name="nombre">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="empleado.apellidos" name="apellido">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="dni" class="col-form-label col-sm-2">DNI</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="empleado.dni" name="dni">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="correo" class="col-form-label col-sm-2">Correo</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="empleado.correo" name="correo">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="clave" class="col-form-label col-sm-2">Clave</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="empleado.clave" name="clave">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="mx-1">
+                        <button class="btn btn-secondary" routerLink="/empleados">Volver</button>
+                    </div>
+                    <div class="mx-1">
+                        <button class="btn btn-primary" role="button" (click) = "create()" *ngIf="!empleado.idempleado else elseBlock">Crear</button>
+                        <ng-template #elseBlock>
+                                <button class="btn btn-primary" role="button" (click) = "actualizar()">Actualizar</button>
+                        </ng-template>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
