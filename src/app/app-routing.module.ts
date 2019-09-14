@@ -10,6 +10,7 @@ import { FormClienteComponent } from './Cruds/cliente/form-cliente/form-cliente.
 import { EmpleadoComponent } from './Cruds/empleado/empleado.component';
 import { FormEmpleadoComponent } from './Cruds/empleado/form-empleado/form-empleado.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path:'', component:AutorComponent},
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:'empleados', component:EmpleadoComponent},
   {path:'empleados/form', component:FormEmpleadoComponent},
   {path:'empleados/form/:id', component:FormEmpleadoComponent},
-  {path:'home', component:HomeComponent}
+  {path:'home', component:HomeComponent},
+  {path:'login', component:LoginComponent}
 ];
 
 @NgModule({
@@ -42,5 +44,6 @@ export const routingComponents = [
   FormClienteComponent,
   EmpleadoComponent,
   FormEmpleadoComponent,
-  HomeComponent
+  HomeComponent,
+  LoginComponent
 ]

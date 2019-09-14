@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
 import { ClienteServiceService } from 'src/app/Service/cliente-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form-cliente',
@@ -22,6 +23,13 @@ export class FormClienteComponent implements OnInit {
     this.clienteService.create(this.cliente).subscribe(
       response => this.router.navigate(['/clientes'])
     )
+    Swal.fire({
+      position: 'center',
+      type: 'success',
+      title: 'Cambios actualizados correctamente.',
+      showConfirmButton: false,
+      timer: 2500
+    })
   }
 
   cargarCliente(): void{
@@ -36,6 +44,13 @@ export class FormClienteComponent implements OnInit {
   actualizar(): void{
     this.clienteService.actualizar(this.cliente).subscribe(cliente => {
       this.router.navigate(['/clientes'])
+      Swal.fire({
+        position: 'top-end',
+        type: 'success',
+        title: 'Cambios actualizados correctamente.',
+        showConfirmButton: false,
+        timer: 1500
+      })
     })
   }
 
